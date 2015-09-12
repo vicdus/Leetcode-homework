@@ -1,0 +1,7 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        x = 0
+        for foo in nums:
+            x ^= foo
+        return x
+#  see bitwise operation. In a certain bit position, if 1 appears even times, it goes to zero because of exclusive operation.

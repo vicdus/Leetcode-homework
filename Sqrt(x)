@@ -1,0 +1,11 @@
+class Solution(object):
+    def mySqrt(self, x):
+        if x < 2:
+            return x
+        u = -1
+        v = x / 2.0
+        while (u-v)**2 > 0.5:
+            u = v
+            v = (v + x / v) / 2
+        return int(v)
+ #  See Newton's numerical method.

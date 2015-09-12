@@ -1,0 +1,9 @@
+class Solution(object):
+    def hammingWeight(self, n):
+        t, hw = 1, 0
+        for i in range(32):
+            if t & n:
+                hw += 1
+            t *= 2
+        return hw
+#  please see bitwise operation. Use t to test binary digits one by one.

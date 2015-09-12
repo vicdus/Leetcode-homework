@@ -1,0 +1,6 @@
+bool isPowerOfTwo(int n) 
+{   
+    return(n>1 ? (n%2 ? 0 : isPowerOfTwo(n>>1)) : (n>0 ? n : 0))
+}
+// if n > 1, and n is an even then check if n/2 is an even or equals to 1. Otherwise returns 0
+// if n = 1 then its a power of two. if n = 0 it is not a power of two. Then just return n
