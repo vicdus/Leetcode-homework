@@ -1,0 +1,12 @@
+class Solution(object):
+	def maxDepth(self, root):
+		def md(root):
+			if root == None:
+				return 0
+			if root.left == None and root.right == None:
+				return 1
+			ld = 0 if root.left == None else md(root.left)
+			rd = 0 if root.right == None else md(root.right)
+			return 1 + max([ld,rd]) 
+		return md(root)
+#  Use recursion and tree's recursive definition
