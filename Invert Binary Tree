@@ -1,0 +1,12 @@
+class Solution(object):
+    def invertTree(self, root):
+        def it(root):
+            if root == None:
+                pass
+            else:
+                root.left, root.right = root.right, root.left
+                it(root.left)
+                it(root.right)
+        it(root)
+        return root
+#  recursively exchange left and right subtree

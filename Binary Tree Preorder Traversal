@@ -1,0 +1,15 @@
+class Solution(object):
+    def preorderTraversal(self, root):
+        global ot
+        ot = []
+        def pt(root):
+            global ot
+            if root == None:
+                pass
+            else:
+                ot = ot + [root.val]
+                pt(root.left)
+                pt(root.right)
+        pt(root)
+        return ot
+#  trival recursive solution.

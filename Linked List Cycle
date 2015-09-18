@@ -1,0 +1,17 @@
+Linked List Cycle
+class Solution(object):
+    def hasCycle(self, head):
+        if head == None:
+            return False
+        pfast = head
+        pslow = head
+        while(True):
+            pfast = pfast.next if pfast.next != None else pfast
+            pfast = pfast.next if pfast.next != None else pfast
+            pslow = pslow.next if pslow.next != None else pslow
+            if pfast == pslow:
+                if pslow.next == None:
+                    return False
+                else:
+                    return True
+#  two pointers. One go 2 step and the other go 1 step each time. Finally they will meet either in circle or in the tail of the linked list.
