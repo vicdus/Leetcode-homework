@@ -1,0 +1,9 @@
+class Solution(object):
+    def searchInsert(self, nums, target):
+        for i,num in enumerate(nums):
+            if num < target:
+                continue
+            if num >= target:
+                return i
+        return len(nums)
+#  just search in loop. if cannot find just return the end index of the sequence.

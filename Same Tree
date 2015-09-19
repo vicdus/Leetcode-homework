@@ -1,0 +1,24 @@
+class Solution(object):
+    def isSameTree(self, p, q):
+        def ist(p,q):
+            if p == None and q != None:
+                return False
+            if p != None and q == None:
+                return False
+            if p == None and q == None:
+                return True
+            if p.val != q.val:
+                return False
+            tt = lambda p: (p.left != None) + 2 * (p.right != None)
+            if tt(p) != tt(q):
+                return False
+            if tt(p) == 0:
+                return True
+            if tt(p) == 1:
+                return ist(p.left, q.left)
+            if tt(p) == 2:
+                return ist(p.right, q.right)
+            if tt(p) == 3:
+                return ist(p.left,q.left) and ist(p.right, q.right)
+        return ist(p,q)
+#  boundary case -> node value same? -> structure same? -> recursively check.
