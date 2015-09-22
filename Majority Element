@@ -1,0 +1,13 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        counter = 0
+        candidate = None
+        for num in nums:
+            if counter == 0:
+                candidate = num
+                counter += 1
+            else:
+                counter = counter + (1 if candidate == num else -1)
+        return candidate
+
+#  amazing voting algorithm. I had never think about this. see the solution. I will update bit manipulation soon.
