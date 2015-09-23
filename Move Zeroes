@@ -1,0 +1,18 @@
+class Solution(object):
+    def moveZeroes(self, nums):
+        i = 0
+        j = 0
+        while i < len(nums):
+            if nums[i] != 0:
+                pass
+            else:
+                j = i
+                while j < (len(nums) -1) and nums[j] == 0:
+                    j += 1
+                if nums[j] == 0:
+                    pass
+                else:
+                    nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+                
+#  two pointers. i is used for searching the next zero to be moving to right, j is used for searching next non-zero, and j starts from i. when non-zero is found, swap them. when j comes to the end of the array and nums[end] is 0, then return.
