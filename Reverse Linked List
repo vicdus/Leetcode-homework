@@ -1,0 +1,18 @@
+class Solution(object):
+    def reverseList(self, head):
+        end = head
+        if head == None:
+            return head
+        else:
+            while end.next != None:
+                end = end.next
+            def rv(head):
+                if head.next == None:
+                    pass
+                else:
+                    rv(head.next)
+                    head.next.next = head
+                    head.next = None
+            rv(head)
+            return end
+#  recursively swap nodes. trivial method, I will commit loop method soon
