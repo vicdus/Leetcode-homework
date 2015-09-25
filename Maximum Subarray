@@ -1,0 +1,12 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        if len(nums) == 1:
+            return nums[0]
+        a = nums[0]
+        e = nums[0]
+        for i in range(1, len(nums)):
+            e = max([e + nums[i], nums[i]])
+            a = max([a, e])
+        return a
+#  in the loop, variable a stands for the MS(maximum subarray) of array nums[0~i](don't necessary to ended with nums[i]), and e stands for MS that ended with nums[i]
+#  http://www.ahathinking.com/archives/120.html this is an Chinese explaination

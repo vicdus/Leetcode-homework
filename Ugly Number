@@ -1,0 +1,10 @@
+class Solution(object):
+    def isUgly(self, num):
+        if num < 1:
+            return False
+        F = [2, 3, 5]
+        for f in F:
+            while num % f == 0:
+                num = num / f
+        return True if num == 1 else False
+#  trival method.
