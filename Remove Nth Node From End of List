@@ -1,0 +1,20 @@
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        if head.next == None:
+            return None
+        p1, p2 = head, head
+        if n == 1:
+            p2 = p2.next
+            while p2.next != None:
+                p1, p2 = p1.next, p2.next
+            p1.next = None
+            return head
+        else:
+            for i in range(n - 1):
+                p2 = p2.next
+            while p2.next != None:
+                p1, p2 = p1.next, p2.next
+            p1.val = p1.next.val
+            p1.next = p1.next.next if p1.next != None else None
+            return head
+#  treat it differently decided by whether n == 1. Use "Delete Node in a Linked List" if n !=1. Use two pointer p1, p2. let p2 go n step further, when p2 goes to the end, delete p1.
