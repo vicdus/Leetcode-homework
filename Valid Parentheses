@@ -1,0 +1,31 @@
+class Solution(object):
+    def isValid(self, s):
+        if len(s) < 2:
+            return False
+        t = s[0]
+        for c in s[1:]:
+            if c in {'(', '{', '['}:
+                t += c
+            if c == ')':
+                if t == '':
+                    return False
+                if t[-1] == '(':
+                    t = t[:-1]
+                else:
+                    return False
+            if c == '}':
+                if t == '':
+                    return False
+                if t[-1] == '{':
+                    t = t[:-1]
+                else:
+                    return False
+            if c == ']':
+                if t == '':
+                    return False
+                if t[-1] == '[':
+                    t = t[:-1]
+                else:
+                    return False
+        return t == ''
+#  Just use stack t. This edition is ugly.
