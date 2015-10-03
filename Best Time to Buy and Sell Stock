@@ -1,0 +1,11 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        if prices == []:
+            return 0
+        MinPrice = prices[0]
+        MaxProfit = 0
+        for p in prices:
+            MinPrice = min([MinPrice, p])
+            MaxProfit = max([MaxProfit, p - MinPrice ])
+        return MaxProfit
+#  Dynamic programming. MaxProfit[i] =max([MaxProfit[i-1], p - minprice[1:i]])
